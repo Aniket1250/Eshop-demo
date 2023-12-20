@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/popper.js"></script>
+    <link rel="stylesheet" href="static/css/footer.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .as {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #495057;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .filter-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-btn:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            text-decoration: none;
+            color: silver;+
+        }
+        .card {
+            width: 14rem;
+            border: 1px solid #ccc;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+        #min , #max {
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Grocery Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="contact.html">Contact</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" aria-disabled="true" href="#">Logout</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="row">
+        <div class="col-sm-2 as" styel=" background-color:black;">
+            <div class="ms-5">
+                <h2>Filters</h2>
+                <label for="category">Category</label>
+                <select id="category">
+                    <option value="fruits">Fruits</option>
+                    <option value="vegetables">Vegetables</option>
+                    <option value="dairy">Dairy</option>
+                    <!-- Add more categories as needed -->
+                </select>
+
+                <label for="price">Price Range</label>
+                <select id="price">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <hr>
+    <h4>Product Categories</h4>
+
+    <ul>
+        <li>
+            <h4>Mobile</h4>
+            <div class="filter">
+                <p>Filter by:</p>
+                <a href="#mobileBrand">Brand</a>
+                <a href="#mobilePrice">Price</a>
+                <!-- Add more filter options as needed -->
+            </div>
+        </li>
+
+        <li>
+            <h4>Clothes</h4>
+            <div class="filter">
+                <p>Filter by:</p>
+                <a href="#clothesType">Type</a>
+                <a href="#clothesColor">Color</a>
+                <!-- Add more filter options as needed -->
+            </div>
+        </li>
+
+        <li>
+            <h4>Shoes</h4>
+            <div class="filter">
+                <p>Filter by:</p>
+                <a href="#shoesSize">Size</a>
+                <a href="#shoesStyle">Style</a>
+                <!-- Add more filter options as needed -->
+            </div>
+        </li>
+    </ul>
+    <form action="" method="POST">
+        <label>MIN</label><input type="number" id="min" name="min"><br>
+        <label>MAX</label><input type="number" id="max" name="max"><br>
+    </form><br><hr>
+                <button class="filter-btn">Apply Filters</button>
+
+            </div>
+        </div>
+        <div class="col-sm-10" style="background-color: aqua; width: 80%;">
+            <div class="row my-4 ms-2">
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage1" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage2" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage3" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-2 ms-2">
+                
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage4" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage5" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage6" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage7" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-4 ms-2">
+                
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage8" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage9" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage10" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="dynamicCard" class="card">
+                        <img id="cardImage11" src="" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 id="cardTitle" class="card-title">Card title</h5>
+                            <p id="cardText" class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="section bg-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">ADDRESS</h6>
+                        <ul class="list-unstyled text-white footer-link mt-4">
+                            <li>Near Shaniwar Wada</a></li><br>
+                            <li>Harihareshwar Road</a></li><br>
+                            <li>NV Gadgil Swimming Pool</a></li><br>
+                            <li>Pune</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Ressources</h6>
+                        <ul class="list-unstyled  footer-link mt-4">
+                            <li><a href="">Monitoring Grader </a></li>
+                            <li><a href="">Video Tutorial</a></li>
+                            <li><a href="">Term &amp; Service</a></li>
+                            <li><a href="">Zeeko API</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Help</h6>
+                        <ul class="list-unstyled text-white footer-link mt-4">
+                            <li><a href="register.html">Sign Up </a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a>Terms of Services</a></li>
+                            <li><a>Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Contact Us</h6>
+                        <p class="contact-info mt-4">Contact us if need help withanything</p>
+                        <p class="contact-info">+91 9049865120</p>
+                        <div class="mt-5">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="fab facebook footer-social-icon fa-facebook-f"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="fab twitter footer-social-icon fa-twitter"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="fab google footer-social-icon fa-google"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="fab apple footer-social-icon fa-apple"></i></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <p class="footer-alt mb-0 f-14">2023 © Aniket , All Rights Reserved</p>
+        </div>
+    </footer>
+
+</body>
+<script>
+    // Fetch a random image from Unsplash API
+    fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage1').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage2').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage3').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage4').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage5').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage6').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage7').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage8').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage9').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage10').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+        fetch('https://source.unsplash.com/random/400x300')
+        .then(response => {
+            // Set image source dynamically
+            document.getElementById('cardImage11').src = response.url;
+        })
+        .catch(error => console.error('Error fetching image:', error));
+       
+    // You can replace these with actual data retrieval logic
+    const cardTitle = "Dynamic Card Title";
+    const cardDescription = "Dynamic card description goes here.";
+
+    // Set title and description dynamically
+    // document.getElementById('cardTitle').innerText = cardTitle;
+    // document.getElementById('cardText').innerText = cardDescription;
+</script>
+</html>

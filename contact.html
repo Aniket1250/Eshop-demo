@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/popper.js"></script>
+    <link rel="stylesheet" href="static/css/footer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .as {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #495057;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .filter-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-btn:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            text-decoration: none;
+            color: silver;
+            +
+        }
+
+        .card {
+            width: 14rem;
+            border: 1px solid #ccc;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+
+        #min,
+        #max {
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Grocery Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-disabled="true" href="contact.html">Contact</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" aria-disabled="true" href="#">Logout</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h6 class="footer-heading text-uppercase">ADDRESS</h6>
+                <ul class="list-unstyled footer-link mt-4">
+                    <li>Near Shaniwar Wada</a></li><br>
+                    <li>Harihareshwar Road</a></li><br>
+                    <li>NV Gadgil Swimming Pool</a></li><br>
+                    <li>Pune</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m20!1m12!1m3!1d121050.99430945987!2d73.88217289885252!3d18.535969756732946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m5!3e6!4m2!1s0x3bc120a58cdf0b49%3A0x882e475e729448b9!2sHasur%2C%20Maharashtra!4m0!5e0!3m2!1sen!2sin!4v1702988099011!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>   </div>
+        </div>
+    </div>
+
+    <footer class="section bg-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">ADDRESS</h6>
+                        <ul class="list-unstyled text-white footer-link mt-4">
+                            <li>Near Shaniwar Wada</a></li><br>
+                            <li>Harihareshwar Road</a></li><br>
+                            <li>NV Gadgil Swimming Pool</a></li><br>
+                            <li>Pune</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Ressources</h6>
+                        <ul class="list-unstyled  footer-link mt-4">
+                            <li><a href="">Monitoring Grader </a></li>
+                            <li><a href="">Video Tutorial</a></li>
+                            <li><a href="">Term &amp; Service</a></li>
+                            <li><a href="">Zeeko API</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Help</h6>
+                        <ul class="list-unstyled text-white footer-link mt-4">
+                            <li><a href="register.html">Sign Up </a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a>Terms of Services</a></li>
+                            <li><a>Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Contact Us</h6>
+                        <p class="contact-info mt-4">Contact us if need help withanything</p>
+                        <p class="contact-info">+91 9049865120</p>
+                        <div class="mt-5">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="fab facebook footer-social-icon fa-facebook-f"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="fab twitter footer-social-icon fa-twitter"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="fab google footer-social-icon fa-google"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="fab apple footer-social-icon fa-apple"></i></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <p class="footer-alt mb-0 f-14">2023 © Aniket , All Rights Reserved</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
